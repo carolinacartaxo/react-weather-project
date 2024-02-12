@@ -9,7 +9,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -42,7 +41,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="formname">
           <div className="row">
             <div className="col-9">
               <input
@@ -51,6 +50,7 @@ export default function Weather(props) {
                 className="form-control"
                 autoFocus="on"
                 onChange={handleCityChange}
+                id="inputname"
               />
             </div>
             <div className="col-3">
@@ -58,6 +58,7 @@ export default function Weather(props) {
                 type="submit"
                 value="Search"
                 className="btn btn-primary w-100"
+                id="buttomname"
               />
             </div>
           </div>
